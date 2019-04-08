@@ -13,15 +13,27 @@
             <li><a href="list">Questions</a></li>
             <li id="about"><a href="about">About</a></li>
         </ul>
-        {% for question in questions  %}
-                <tr>
-                    <td>{{ loop.index }} </td>
-                    <td><a href="question_detail/{{ question['id'] }}">{{ question['title'] }} </a></td>
-                    <td>{{ question['message'] }} </td>
-                    <td>{{ question['submission_time'] }} </td>
-                    <td>{{ question['view_number'] }} </td>
-                    <td>{{ question['vote_number'] }} </td>
 
-                </tr>
-                {% endfor %}
-            </body>
+                <table>
+                    <tr>
+                        <th>Index</th>
+                        <th>Tytuł</th>
+                        <th>Pytanie</th>
+                        <th>Czas dodania</th>
+                        <th>Ilość wyświetleń</th>
+                        <th>ilość likeów</th>
+                    </tr>
+        {% for question in questions  %}
+                    <tr>
+                        <td>{{ loop.index }} </td>
+                        <td><a href="question_detail/{{ question['id'] }}">{{ question['title'] }} </a></td>
+                        <td>{{ question['message'] }} </td>
+                        <td>{{ question['submission_time'] }} </td>
+                        <td>{{ question['view_number'] }} </td>
+                        <td>{{ question['vote_number'] }} </td>
+                        <td>Image</td>
+                    </tr>
+
+        {% endfor %}
+                </table>
+    </body>

@@ -31,7 +31,12 @@
                         <td>{{ question['submission_time'] }} </td>
                         <td>{{ question['view_number'] }} </td>
                         <td>{{ question['vote_number'] }} </td>
-                        <td>Image</td>
+                        {% if question['image'] %}
+                        <td><img src="/static/{{ question['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                    {% else %}
+                        <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                    {% endif %}
+                    <td><a href="/question/{{ question['id'] }}/delete"><i class="fas fa-trash text-danger"></i></a></td>
                     </tr>
 
         {% endfor %}

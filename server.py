@@ -1,9 +1,8 @@
 from datetime import datetime
 
-from flask import Flask, render_template, request, redirect
-
 import connection
 import data_manager
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
@@ -54,20 +53,25 @@ def add():
         new_id = int(last_id) + 1
     else:
         new_id = 0
-    new_question = {
+    if request.method == 'POST':
+        new_question = {
         'id': new_id,
         'submission_time': data,
         'view_number': 0,
         'vote_number': 0,
-        'title': 'title',
-        'message': "message",
+            'title': request.form['title'],
+            'message': request.form["message"],
         'image': "none"
-    }
+        }
+    else:
+        return render_template('add.html')
     new_data = data_manager.get_questions()
     new_data.append(new_question)
-    connection.write_file(new_data, 'question.csv')
-    return render_template("add.html")
+    connection.write_file(new_data, 'ask-mate-python/sample_data/question.csv')
+    print('NoError')
+    return render_template("list.html")
 
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()

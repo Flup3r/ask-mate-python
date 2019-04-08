@@ -24,6 +24,12 @@ def list_of_questions():
 def show_question(id):
     return render_template("show_question.html")
 
+@app.route('/question/<id>/new-answer', methods=['GET', 'POST'])
+def route_new_answer(id):
+    if request.method == 'POST':
+        data_manager.add_answer(request.form, id)
+        return redirect('/question_detail/' + id)
+    return render_template('answer.html', id=id)
 
 
 

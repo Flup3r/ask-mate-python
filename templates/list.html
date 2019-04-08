@@ -26,7 +26,7 @@
         {% for question in questions  %}
                     <tr>
                         <td>{{ loop.index }} </td>
-                        <td><a href="question_detail/{{ question['id'] }}">{{ question['title'] }} </a></td>
+                        <td><a href="show_question/{{ question['id'] }}">{{ question['title'] }} </a></td>
                         <td>{{ question['message'] }} </td>
                         <td>{{ question['submission_time'] }} </td>
                         <td>{{ question['view_number'] }} </td>

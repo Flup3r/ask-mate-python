@@ -1,15 +1,24 @@
 id,submission_time,view_number,vote_number,title,message,image
-0,1493368154,29,7,How to make lists in Python?,"I am totally new to this, any hints?",
-1,1493068124,15,9,Wordpress loading multiple jQuery Versions,"I developed a plugin that uses the jquery booklet plugin (http://builtbywill.com/booklet/#/) this plugin binds a function to $ so I cann call $('.myBook').booklet();
-
-I could easy managing the loading order with wp_enqueue_script so first I load jquery then I load booklet so everything is fine.
-
-BUT in my theme i also using jquery via webpack so the loading order is now following:
-
-jquery
-booklet
-app.js (bundled file with webpack, including jquery)",images/image1.png
-2,1493015432,1364,57,Drawing canvas with an image picked with Cordova Camera Plugin,"I'm getting an image from device and drawing a canvas with filters using Pixi JS. It works all well using computer to get an image. But when I'm on IOS, it throws errors such as cross origin issue, or that I'm trying to use an unknown format.
-
-This is the code I'm using to draw the image (that works on web/desktop but not cordova built ios app)",
-,,,,,,
+0 ,1493368154                ,29         ,7          ,How to make lists in Python?              ,"I am totally new to this, any hints?"                                                                                                                              ,
+1 ,1493068124                ,15         ,9          ,Wordpress loading multiple jQuery Versions,I developed a plugin that uses the jquery booklet plugin (http://builtbywill.com/booklet/#/) this plugin binds a function to $ so I cann call $('.myBook').booklet(),
+2 ,2019-04-08 13:40:38.093461,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+3 ,2019-04-08 13:44:24.917847,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+4 ,2019-04-08 13:45:32.284124,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+5 ,2019-04-08 13:45:40.730178,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+6 ,2019-04-08 13:45:59.159411,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+7 ,2019-04-08 13:52:39.671801,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+8 ,2019-04-08 13:53:37.451429,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+9 ,2019-04-08 13:53:47.961501,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+10,2019-04-08 13:55:55.212198,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+11,2019-04-08 13:55:58.114247,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+12,2019-04-08 13:56:41.487904,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+13,2019-04-08 13:57:41.652610,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+14,2019-04-08 13:57:44.596298,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+15,2019-04-08 13:57:46.562889,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+16,2019-04-08 14:03:05.741201,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+17,2019-04-08 14:03:08.393474,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+18,2019-04-08 14:03:58.185220,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+19,2019-04-08 14:03:59.984186,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+20,2019-04-08 14:04:04.984312,0          ,0          ,xxx                                       ,xxx                                                                                                                                                                 ,none
+21,2019-04-08 14:40:20.269021,0          ,0          ,title                                     ,message                                                                                                                                                             ,none
+22,2019-04-08 14:40:25.103178,0          ,0          ,title                                     ,message                                                                                                                                                             ,none

@@ -1,3 +1,12 @@
+#rozne funkcje:
+#wpisywanie:
+#czasu
+#id
+#liczenie vote'ow
+#wyswietlenia
+#obrazek
+#wszystko musi skladac i rozkladac z list/ w liste
+
 import connection
 
 

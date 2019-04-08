@@ -31,8 +31,6 @@ def route_new_answer(id):
         return redirect('/question_detail/' + id)
     return render_template('answer.html', id=id)
 
-
-
 @app.route('/about')
 def about():
     return render_template("about.html")
@@ -45,7 +43,7 @@ def add_question():
 
 
 @app.route('/add', methods=['GET', 'POST'])
-def add(form):
+def add():
     data = datetime.now()
     data = str(data)
 
@@ -60,16 +58,14 @@ def add(form):
         'submission_time': data,
         'view_number': 0,
         'vote_number': 0,
-        'title': form['title'],
-        'message': form["message"],
+        'title': 'title',
+        'message': "message",
         'image': "none"
     }
     new_data = data_manager.get_questions()
     new_data.append(new_question)
     connection.write_file(new_data, 'question.csv')
     return render_template("add.html")
-
-
 
 
 if __name__ == '__main__':

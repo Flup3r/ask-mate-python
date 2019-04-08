@@ -39,7 +39,7 @@ def add_question():
 
 
 @app.route('/add', methods=['GET', 'POST'])
-def add(form):
+def add():
     data = datetime.now()
     data = str(data)
 
@@ -54,8 +54,8 @@ def add(form):
         'submission_time': data,
         'view_number': 0,
         'vote_number': 0,
-        'title': form['title'],
-        'message': form["message"],
+        'title': 'title',
+        'message': "message",
         'image': "none"
     }
     new_data = data_manager.get_questions()

@@ -25,8 +25,6 @@ def show_question(id):
     return render_template("show_question.html")
 
 
-
-
 @app.route('/about')
 def about():
     return render_template("about.html")
@@ -62,8 +60,6 @@ def add():
     new_data.append(new_question)
     connection.write_file(new_data, 'question.csv')
     return render_template("add.html")
-
-
 
 
 if __name__ == '__main__':

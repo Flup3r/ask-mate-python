@@ -8,7 +8,8 @@
 #wszystko musi skladac i rozkladac z list/ w liste
 
 import connection
-
+import uuid
+from datetime import datetime
 
 def get_all_answers():
     a_list = connection.import_data('ask-mate-python/sample_data/answers.csv')

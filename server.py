@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-
+import data_manager
 
 app = Flask(__name__)
 
@@ -12,7 +12,8 @@ def main_page():
 
 @app.route('/list')
 def list_of_questions():
-    return render_template("list.html")
+    questions = data_manager.get_all_questions()
+    return render_template('list.html', questions=questions)
 
 
 @app.route('/add', methods=['GET', 'POST'])

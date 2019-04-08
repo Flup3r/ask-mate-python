@@ -12,8 +12,7 @@ def write_file(dict_list, filename):
     keys = ["id", "submission_time", "view_number", "vote_number", "title", "message", "image"]
     if filename == 'answers.csv':
         keys = ['id', 'submission_time', 'vote_number', 'question_id', 'message', 'image']
-    file_directory = 'data/' + filename
-    with open(file_directory, 'w') as f:
+    with open(filename, 'w') as f:
         writer = csv.DictWriter(f, keys)
         writer.writeheader()
         writer.writerows(dict_list)

@@ -11,10 +11,10 @@ import connection
 
 
 def get_all_answers():
-    a_list = connection.import_data('answers.csv')
+    a_list = connection.import_data('ask-mate-python/sample_data/answer.csv')
     return a_list
 
 def get_questions():
-    questions = connection.import_data('question.csv')
-
+    questions = connection.import_data('ask-mate-python/sample_data/question.csv')
+    return questions
 

@@ -106,6 +106,7 @@ def vote_system_plus(id):
             connection.write_file(all_answers, 'ask-mate-python/sample_data/question.csv')
     return redirect('/list')
 
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

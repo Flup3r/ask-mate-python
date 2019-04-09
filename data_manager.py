@@ -44,7 +44,7 @@ def one_question(id):
 
 
 def get_answers_to_question(id):
-    id = str(id)
+    id = str(id) + " "
     answers = get_all_answers()
     filtered_answers = []
     for answer in answers:

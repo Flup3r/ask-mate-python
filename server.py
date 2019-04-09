@@ -61,7 +61,7 @@ def add():
         'vote_number': 0,
             'title': request.form['title'],
             'message': request.form["message"],
-        'image': "none"
+            'image': None
         }
     else:
         return render_template('add.html')
@@ -69,7 +69,7 @@ def add():
     new_data.append(new_question)
     connection.write_file(new_data, 'ask-mate-python/sample_data/question.csv')
     print('NoError')
-    return render_template("list.html")
+    return redirect('/list')
 
 
 if __name__ == '__main__':

@@ -25,5 +25,25 @@
             {% endif %}
             <td><a href="/question/{{ question['id'] }}/delete"><i class="fas fa-trash text-danger"></i></a></td>
         </table>
+        </br>
+        <a href="/question/{{ question['id'] }}/new-answer" <button>Add Answer</button></a>
+         </br>
+        <table>
+        {% for answer in answers  %}
+            <tr>
+            <td>{{ loop.index }} </td>
+            <td>{{ answer['message'] }} </td>
+            <td>{{ answer['submission_time'] }} </td>
+            <td>{{ answer['vote_number'] }} </td>
+            </tr>
+            {% if answer['image'] %}
+                        <td><img src="/static/{{ answer['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                    {% else %}
+                        <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                    {% endif %}
+                    <td><a href="/question/{{ answer['id'] }}/delete"><i class="fas fa-trash text-danger"></i></a></td>
+            {% endfor %}
+        </table>
+
     </body>
 </html>

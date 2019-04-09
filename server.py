@@ -22,7 +22,9 @@ def list_of_questions():
 @app.route('/show_question/<id>')       #transfers id from list of questions
 def show_question(id):
     question = data_manager.one_question(id)
-    return render_template("show_question.html", question = question)
+    answers = data_manager.get_answers_to_question(id)
+    return render_template("show_question.html", question=question, answers=answers)
+
 
 @app.route('/question/<id>/new-answer', methods=['GET', 'POST'])
 def route_new_answer(id):
@@ -30,6 +32,7 @@ def route_new_answer(id):
         data_manager.add_answer(request.form, id)
         return redirect('/question_detail/' + id)
     return render_template('answer.html', id=id)
+
 
 @app.route('/about')
 def about():

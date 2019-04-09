@@ -75,6 +75,25 @@ def add():
     return redirect('/list')
 
 
+@app.route('/list/<id>/down', methods=['GET', 'POST'])
+def vote_system_minus(id):
+    all_answers = data_manager.get_questions()
+    for answer in all_answers:
+        if id == answer['id']:
+            answer['vote_number'] = int(answer['vote_number']) - 1
+            connection.write_file(all_answers, 'ask-mate-python/sample_data/question.csv')
+    return redirect('/list')
+
+
+@app.route('/list/<id>/up', methods=['GET', 'POST'])
+def vote_system_plus(id):
+    all_answers = data_manager.get_questions()
+    for answer in all_answers:
+        if id == answer['id']:
+            answer['vote_number'] = int(answer['vote_number']) + 1
+            connection.write_file(all_answers, 'ask-mate-python/sample_data/question.csv')
+    return redirect('/list')
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

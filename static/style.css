@@ -53,13 +53,8 @@ input{
     box-sizing: border-box;
 }
 
-#about{
-    float: right;
-}
-
-#textfield{
-    width: 30%;
-    height: 20%;
+#answers{
+    margin-left: 5%;
 }
 
 button {

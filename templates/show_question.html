@@ -28,7 +28,7 @@
         </br>
         <a href="/question/{{ question['id'] }}/new-answer"><button><span>Add Answer</span></button></a>
          </br>
-        <table>
+        <table id="answers">
         {% for answer in answers  %}
             <tr>
             <td>{{ loop.index }} </td>

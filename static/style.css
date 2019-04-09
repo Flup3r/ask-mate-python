@@ -28,16 +28,18 @@ li a:hover {
 }
 
 fieldset{
-    margin-top: 5%;
+    margin-left: 15%;
+    margin-top: 3%;
     font-size: large;
-    max-width: 40%;
-    max-height: 60%;
+    width: 70%;
+    height: 800px;
 }
 
 textarea{
     resize: none;
-    width: 600px;
-    height: 600px;
+    margin-left: 5%;
+    width: 90%;
+    height: 87%;
     border: 2px solid black;
     background-color: mintcream;
     border-radius: 4px;
@@ -68,8 +70,8 @@ button {
     color: white;
     text-align: center;
     font-size: 25px;
-    padding: 20px;
-    width: 150px;
+    padding: 18px;
+    width: 130px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;

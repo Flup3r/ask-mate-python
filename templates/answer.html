@@ -13,17 +13,14 @@
             <li><a href="list">Questions</a></li>
             <li id="about"><a href="about">About</a></li>
         </ul>
-    <div class="container">
+
         <form action="/question/{{ id }}/new-answer" method="post">
-            <div>
-                <h3>Add new answer</h3><br>
-            </div>
-            <div class="form-group mb-2">
-                <label for="answer">Answer description</label>
-                <textarea type="description" name="answer" class="form-control" id="answer" placeholder="Enter your answer here" rows="8"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary mb-2"><span>Submit</span></button>
+            <fieldset>
+                <legend>Enter Your Answer HERE!!!!</legend>
+                <textarea type="description" name="answer" placeholder="Enter your answer here" rows="8"></textarea>
+            <button type="submit"><span>Submit</span></button>
+            </fieldset>
         </form>
-    </div>
+    </body>
 
 {% endblock %}

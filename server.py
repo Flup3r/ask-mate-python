@@ -30,7 +30,7 @@ def show_question(id):
 def route_new_answer(id):
     if request.method == 'POST':
         data_manager.add_answer(request.form, id)
-        return redirect('/question_detail/' + id)
+        return redirect('/show_question/' + id)
     return render_template('answer.html', id=id)
 
 

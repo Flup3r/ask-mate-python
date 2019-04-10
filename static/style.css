@@ -96,3 +96,11 @@ button:hover span:after {
     opacity: 1;
     right: 0;
 }
+
+td.red {
+    color: red;
+}
+
+td.green {
+    color: limegreen;
+}

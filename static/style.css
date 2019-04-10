@@ -97,6 +97,11 @@ button:hover span:after {
     right: 0;
 }
 
+#delete{
+    background-color: orangered;
+    transition: none;
+}
+
 td.red {
     color: red;
 }

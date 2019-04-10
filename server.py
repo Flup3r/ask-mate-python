@@ -80,12 +80,14 @@ def route_delete_question(question_id):
     data_manager.delete_element("question", question_id)
     return redirect('/list')
 
+
 @app.route('/answer/<combined_id>/delete') #delete answer
 def route_delete_answer(combined_id):
     answer_id = combined_id.split('_')[0]
     question_id = combined_id.split('_')[1]
     data_manager.delete_element("answer", answer_id)
     return redirect('/question_detail/' + question_id)
+
 
 @app.route('/list/<id>/down', methods=['GET', 'POST'])
 def vote_system_minus(id):

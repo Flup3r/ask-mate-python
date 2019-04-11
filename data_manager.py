@@ -78,3 +78,11 @@ def delete_element(element_type, element_id):
         # delete answer
         updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
         connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')
+
+
+def question_view_count_increase(id):
+    questions = connection.import_data('ask-mate-python/sample_data/question.csv')
+    for question in questions:
+        if question['id'] == id:
+            question['view_number'] = str(int(question['view_number']) + 1)
+    connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')

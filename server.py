@@ -109,6 +109,26 @@ def vote_system_plus(id):
     return redirect('/list')
 
 
+@app.route('/answer/<answer_id>/vote-down/<question_id>', methods=['GET', 'POST'])
+def vote_ask_minus(answer_id, question_id):
+    all_answers = data_manager.get_all_answers()
+    for answer in all_answers:
+        if answer_id == answer['id']:
+            answer['vote_number'] = int(answer['vote_number']) - 1
+            connection.write_file(all_answers, 'ask-mate-python/sample_data/answer.csv')
+    return redirect('/show_question/' + question_id)
+
+
+@app.route('/answer/<answer_id>/vote-up/<question_id>', methods=['GET', 'POST'])
+def vote_ask_plus(answer_id, question_id):
+    all_answers = data_manager.get_all_answers()
+    for answer in all_answers:
+        if answer_id == answer['id']:
+            answer['vote_number'] = int(answer['vote_number']) + 1
+            connection.write_file(all_answers, 'ask-mate-python/sample_data/answer.csv')
+    return redirect('/show_question/' + question_id)
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run()

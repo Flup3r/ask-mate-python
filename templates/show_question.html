@@ -32,7 +32,7 @@
         {% for answer in answers  %}
             <tr>
             <td>{{ loop.index }} </td>
-            <td>{{ answer['message'] }} </td>
+            <td width="60%">{{ answer['message'] }} </td>
             <td>{{ answer['submission_time'] }} </td>
             {% if answer['vote_number']|int < 0 %}
                 <td class="red" >{{ answer['vote_number'] }} </td>

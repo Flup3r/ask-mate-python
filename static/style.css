@@ -67,7 +67,6 @@ button {
     font-size: 25px;
     padding: 18px;
     width: 130px;
-    transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
 }
@@ -108,4 +107,8 @@ td.red {
 
 td.green {
     color: limegreen;
+}
+
+td.yellow{
+    color: yellow;
 }

@@ -33,6 +33,8 @@
 
                         {% if question['vote_number']|int < 0 %}
                             <td class="red" >{{ question['vote_number'] }} </td>
+                        {% elif question['vote_number']|int == 0 %}
+                            <td class="yellow" >{{ question['vote_number'] }} </td>
                         {% else %}
                             <td class="green" >{{ question['vote_number'] }} </td>
                         {% endif %}

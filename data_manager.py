@@ -57,16 +57,24 @@ def get_answers_to_question(id):
 def delete_element(element_type, element_id):
     # delete file if exists
     data = connection.import_data(f'ask-mate-python/sample_data/{element_type}.csv')
+    try:
+        deleted_element_img_path = [element['image'] for element in data if element['id'] == element_id][0]
+        file_name = deleted_element_img_path.split("/")[1]
+    except IndexError:
+        pass
 
-
-
+    # delete element
     updated_data = [data_element for data_element in data if data_element['id'] != element_id]
     connection.write_file(updated_data, f'ask-mate-python/sample_data/{element_type}.csv')
 
-    answers = []
+    # if question is deleted - also delete corresponding answers
     if element_type == "question":
         answers = connection.import_data('ask-mate-python/sample_data/answer.csv')
 
+        # delete answer's image
+        img_paths_of_deleted_answers = [answer['image'] for answer in answers if answer['question_id'] == element_id]
 
-    updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
-    connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')
+
+        # delete answer
+        updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
+        connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')

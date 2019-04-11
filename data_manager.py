@@ -110,3 +110,20 @@ def question_view_count_increase(id):
         if question['id'] == id:
             question['view_number'] = str(int(question['view_number']) + 1)
     connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')
+
+
+def update_image(file_type, filename, id):
+    data = connection.import_data(f"ask-mate-python/sample_data/{file_type}.csv")
+    for element in data:
+        if element['id'] == id:
+            element['image'] = 'images/' + filename
+    connection.write_file(data, f"ask-mate-python/sample_data/{file_type}.csv")
+
+
+def update_question(id, title, description, file_type):
+    questions = connection.import_data('ask-mate-python/sample_data/question.csv')
+    for question in questions:
+        if question['id'] == id:
+            question['title'] = title
+            question['message'] = description
+    connection.write_file(questions, f"ask-mate-python/sample_data/{file_type}.csv")

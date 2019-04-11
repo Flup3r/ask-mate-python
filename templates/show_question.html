@@ -24,6 +24,7 @@
                 <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
             {% endif %}
             <td><a href="/question/{{ question['id'] }}/delete"><i class="fas fa-trash text-danger"></i></a></td>
+
         </table>
         </br>
         <a href="/question/{{ question['id'] }}/new-answer"><button><span>Add Answer</span></button></a>
@@ -40,6 +41,7 @@
                 <td class="yellow" >{{ answer['vote_number'] }} </td>
             {% else %}
                 <td class="green" >{{ answer['vote_number'] }} </td>
+
             {% endif %}
             <td><a href="/answer/{{ answer['id'] }}/vote-up/{{ question['id'] }}"> <img border="0" src="/static/up.png" width="50" height="50"></a></td>
             <td><a href="/answer/{{ answer['id'] }}/vote-down/{{ question['id'] }}"> <img src="/static/down.png" width="50" height="50"></a></td>
@@ -47,10 +49,11 @@
             {% if answer['image'] %}
                         <td><img src="/static/{{ answer['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
                     {% else %}
-                        <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                        <td><img src="http://placehold.it/80" alt="Example image" class="button" style="height:70px; width:auto;"></td>
                     {% endif %}
             <td><a href="/answer/{{ answer['id'] + '_' + question['id'] }}/delete"><button id="delete" type="submit" formmethod="post"><span>DELETE</span></button></a>
             {% endfor %}
+
         </table>
 
     </body>

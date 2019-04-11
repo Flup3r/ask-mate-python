@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <form action="{{ action }}" method="post">
     <meta charset="UTF-8">
     <title>Add question</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
@@ -13,13 +14,13 @@
             <li><a href="list">Questions</a></li>
             <li id="about"><a href="about">About</a></li>
         </ul>
-        <form action="/add" method="POST">
+        <form action="/show_question/{{ question['id'] }}/edit" method="POST">
              <fieldset>
                     <legend>Enter Your Question:</legend>
                  Title:<br>
-                 <input name='title' type="text" value="Your title"><br>
+                 <input name='title' type="text" value="{{ question['title'] if edit }}"><br>
                         Question:<br>
-                 <textarea name="message">Enter your Question here</textarea><br>
+                 <textarea name="message">{{ question['title'] if edit }}</textarea><br>
                     <br>
                     <button type="submit" formmethod="post"><span>Submit</span></button>
 

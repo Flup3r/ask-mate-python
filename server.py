@@ -58,7 +58,6 @@ def about():
 
 @app.route('/add-question', methods=['GET', 'POST'])
 def add_question():
-    question = request.form
     return render_template("add.html")
 
 
@@ -139,6 +138,38 @@ def vote_ask_plus(answer_id, question_id):
             connection.write_file(all_answers, 'ask-mate-python/sample_data/answer.csv')
     question_id = str(question_id)
     return redirect('/show_question/' + question_id)
+
+
+@app.route('/show_question/<id>/edit', methods=['POST', 'GET'])
+def route_question_edit(id):
+    edit = True
+    action = '/show_question/' + id + '/edit'
+    question = data_manager.one_question(id)
+    if request.method == 'POST':
+        title = request.form['title']
+        description = request.form['message']
+        data_manager.update_question(id, title, description, "question")
+        return redirect('/show_question/' + id)
+    return render_template('edit.html', edit=edit, question=question, id=id, action=action)
+
+
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    if request.method == 'POST' and 'photo' in request.files:
+        question_id = request.args.get('question_id', type=str)
+        answer_id = request.args.get('answer_id', type=str)
+
+        try:
+            filename = photos.save(request.files['photo'])
+        except:
+            return redirect('/question_detail/' + question_id)
+
+        id = answer_id if answer_id else question_id
+        file_type = "answers" if answer_id else "questions"
+
+        data_manager.update_image(file_type, filename, id)
+        return redirect('/question_detail/' + question_id)
+
 
 
 if __name__ == '__main__':

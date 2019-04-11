@@ -49,7 +49,7 @@
                     {% else %}
                         <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
                     {% endif %}
-                    <td><a href="/question/{{ answer['id'] }}/delete"><i class="fas fa-trash text-danger"></i></a></td>
+                    <td><a href="/answer/{{ answer['id'] + '_' + question['id'] }}/delete"><i <button type="submit" formmethod="post"><span>DELETE</span></button>
             {% endfor %}
         </table>
 

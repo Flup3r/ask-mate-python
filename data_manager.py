@@ -39,13 +39,14 @@ def add_answer(form_data, id):
 
 def one_question(id):
     questions = get_questions()
-    id = int(id)
-    question = questions[id]
-    return question
+    for question in questions:
+        if question['id'] == id:
+            return question
+
 
 
 def get_answers_to_question(id):
-    id = str(id)
+    id = id
     answers = get_all_answers()
     filtered_answers = []
     for answer in answers:
@@ -55,19 +56,18 @@ def get_answers_to_question(id):
 
 
 def delete_element(element_type, element_id):
+    # delete file if exists
     data = connection.import_data(f'ask-mate-python/sample_data/{element_type}.csv')
 
 
-    # delete element
+
     updated_data = [data_element for data_element in data if data_element['id'] != element_id]
     connection.write_file(updated_data, f'ask-mate-python/sample_data/{element_type}.csv')
 
-    # if question is deleted - also delete corresponding answers
+
     if element_type == "question":
         answers = connection.import_data('ask-mate-python/sample_data/answer.csv')
 
 
-
-        # delete answer
-        updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
-        connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')
+    updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
+    connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')

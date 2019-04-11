@@ -3,7 +3,7 @@ from datetime import datetime
 import connection
 import data_manager
 from flask import Flask, render_template, request, redirect
-
+import uuid
 app = Flask(__name__)
 
 
@@ -50,15 +50,11 @@ def add():
     data = datetime.now()
     data = str(data)
 
-    last_id = data_manager.get_questions()
-    last_id = last_id[-1]['id']
-    if int(last_id) > -1:
-        new_id = int(last_id) + 1
-    else:
-        new_id = 0
+
+        
     if request.method == 'POST':
         new_question = {
-        'id': new_id,
+        'id': uuid.uuid4(),
         'submission_time': data,
         'view_number': 0,
         'vote_number': 0,

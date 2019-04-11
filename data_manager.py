@@ -44,7 +44,6 @@ def one_question(id):
             return question
 
 
-
 def get_answers_to_question(id):
     id = id
     answers = get_all_answers()
@@ -64,7 +63,7 @@ def delete_element(element_type, element_id):
     updated_data = [data_element for data_element in data if data_element['id'] != element_id]
     connection.write_file(updated_data, f'ask-mate-python/sample_data/{element_type}.csv')
 
-
+    answers = []
     if element_type == "question":
         answers = connection.import_data('ask-mate-python/sample_data/answer.csv')
 

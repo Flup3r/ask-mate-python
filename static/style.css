@@ -39,7 +39,7 @@ fieldset{
 textarea{
     resize: none;
     width: 90%;
-    height: 87%;
+    height: 80%;
     border: 2px solid black;
     background-color: mintcream;
     border-radius: 4px;
@@ -98,6 +98,18 @@ button:hover span:after {
 #delete{
     background-color: orangered;
     transition: none;
+}
+
+#vote{
+    background-color: greenyellow;
+    transition: none;
+    color: black;
+}
+
+#date{
+    background-color: yellow;
+    transition: none;
+    color: black;
 }
 
 td.red {

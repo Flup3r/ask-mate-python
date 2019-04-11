@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>List of questions</title>
@@ -13,8 +13,9 @@
             <li><a href="list">Questions</a></li>
             <li id="about"><a href="about">About</a></li>
         </ul>
-
-                <table>
+        <a href="/list/sorted/by_date"><button id="date"><span>Date</span></button></a>
+        <a href="/list/sorted/by_vote"><button id="vote"><span>Vote</span></button></a>
+        <table>
                     <tr>
                         <th>Index</th>
                         <th>Tytuł</th>
@@ -23,6 +24,7 @@
                         <th>Ilość wyświetleń</th>
                         <th>ilość likeów</th>
                     </tr>
+            </br>
         {% for question in questions  %}
                     <tr>
                         <td>{{ loop.index }} </td>
@@ -54,6 +56,7 @@
                     {% endif %}
                         <td><a href="/question/{{ question['id'] }}/delete"><button type="submit" formmethod="post" id="delete"><span>DELETE</span></button></a>
                     </tr>
+
 
         {% endfor %}
                 </table>

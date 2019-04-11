@@ -80,6 +80,30 @@ def delete_element(element_type, element_id):
         connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')
 
 
+def sorting_questions(type_of_filter, value):
+    questions = get_questions()
+    if type_of_filter == "by_date":
+        filtered_questions = sorted(questions, key=lambda i: i['submission_time'], reverse=value)
+    else:
+        filtered_questions = sorted(questions, key=lambda i: i['vote_number'], reverse=value)
+    return filtered_questions
+
+
+def sprawdzajko(type):
+    questions = get_questions()
+    if type == 'submission_time':
+        if questions[0][type] < questions[-1][type]:
+            value = True;
+        else:
+            value = False;
+    else:
+        if int(questions[0][type]) < int(questions[-1][type]):
+            value = True;
+        else:
+            value = False;
+    return value
+
+
 def question_view_count_increase(id):
     questions = connection.import_data('ask-mate-python/sample_data/question.csv')
     for question in questions:

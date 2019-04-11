@@ -19,6 +19,22 @@ def list_of_questions():
     return render_template('list.html', questions=questions)
 
 
+@app.route('/list/sorted/by_date')
+def sorted_by_date():
+    value = data_manager.sprawdzajko('submission_time')
+    questions = data_manager.sorting_questions("by_date", value)
+    connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')
+    return redirect("/list")
+
+
+@app.route('/list/sorted/by_vote')
+def sorted_by_vote():
+    value = data_manager.sprawdzajko('vote_number')
+    questions = data_manager.sorting_questions("by_vote", value)
+    connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')
+    return redirect('/list')
+
+
 @app.route('/show_question/<id>')       #transfers id from list of questions
 def show_question(id):
     data_manager.question_view_count_increase(id)
@@ -50,9 +66,6 @@ def add_question():
 def add():
     data = datetime.now()
     data = str(data)
-
-
-        
     if request.method == 'POST':
         new_question = {
         'id': uuid.uuid4(),

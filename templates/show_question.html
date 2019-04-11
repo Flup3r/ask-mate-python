@@ -27,7 +27,8 @@
 
         </table>
         </br>
-        <a href="/question/{{ question['id'] }}/new-answer"><button><span>Add Answer</span></button></a>
+        <a href="/question/{{ question['id'] }}/new-answer"><button><span>Answer</span></button></a>
+        <a href="/show_question/{{ question['id'] }}/edit"><button><span>(R)Eddit</span></button></a>
          </br>
         <table id="answers">
         {% for answer in answers  %}

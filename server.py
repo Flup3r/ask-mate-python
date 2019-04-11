@@ -112,7 +112,6 @@ def vote_ask_minus(answer_id, question_id):
         if answer_id == answer['id']:
             answer['vote_number'] = int(answer['vote_number']) - 1
             connection.write_file(all_answers, 'ask-mate-python/sample_data/answer.csv')
-    question_id = int(question_id) - 1
     question_id = str(question_id)
     return redirect('/show_question/' + question_id)
 
@@ -124,7 +123,6 @@ def vote_ask_plus(answer_id, question_id):
         if answer_id == answer['id']:
             answer['vote_number'] = int(answer['vote_number']) + 1
             connection.write_file(all_answers, 'ask-mate-python/sample_data/answer.csv')
-    question_id = int(question_id) - 1
     question_id = str(question_id)
     return redirect('/show_question/' + question_id)
 

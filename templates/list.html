@@ -42,12 +42,10 @@
                         {% endif %}
 
                         <td>
-                            <a href="list/{{ question['id'] }}/up"><img border="0" src="static/up.png" width="50"
-                                                                        height="50"></a>
+                            <a href="list/{{ question['id'] }}/up"><img border="0" src="static/up.png" width="50" height="50"></a>
                         </td>
                         <td>
-                            <a href="list/{{ question['id'] }}/down"><img border="0" src="static/down.png" width="50"
-                                                                          height="50"></a>
+                            <a href="list/{{ question['id'] }}/down"><img border="0" src="static/down.png" width="50" height="50"></a>
                         </td>
                         {% if question['image'] %}
                         <td><img src="/static/{{ question['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
@@ -56,8 +54,15 @@
                     {% endif %}
                         <td><a href="/question/{{ question['id'] }}/delete"><button type="submit" formmethod="post" id="delete"><span>DELETE</span></button></a>
                     </tr>
-
-
         {% endfor %}
                 </table>
+        <div id="trans" class="low">
+            <img width="700px" height="401px" class="bottom" src="static/spacex.png" />
+            <img width="700px" height="401px" class="top" src="static/atlas.jpg" />
+        </div>
+
+        <div id="trans" class="right">
+            <img width="700px" height="401px" class="bottom" src="static/calsberg.jpg" />
+            <img width="700px" height="401px" class="top" src="static/cocacola.jpg" />
+        </div>
     </body>

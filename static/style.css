@@ -147,9 +147,8 @@ td.yellow{
 
 
 #trans {
-  position:relative;
-  height:281px;
-  width:450px;
+    width: 700px;
+    height: 401px;
 }
 
 #trans img {
@@ -185,12 +184,16 @@ animation-direction: alternate;
 }
 
 div.right{
-    float: right;
+    float: left;
 }
 
 div.low{
-    margin-top: 15%;
-    float: bottom;
+    float: right;
+}
+
+div.middle{
+    float: right;
+    margin-right: 25%;
 }
 
 #border{

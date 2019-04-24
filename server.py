@@ -9,7 +9,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def main_page():
-    question = request.form
     return render_template("index.html")
 
 

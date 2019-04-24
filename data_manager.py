@@ -74,34 +74,25 @@ def delete_element(element_type, element_id):
         # delete answer's image
         img_paths_of_deleted_answers = [answer['image'] for answer in answers if answer['question_id'] == element_id]
 
-
         # delete answer
         updated_answers = [answer for answer in answers if answer['question_id'] != element_id]
         connection.write_file(updated_answers, 'ask-mate-python/sample_data/answer.csv')
 
 
-def sorting_questions(type_of_filter, value):
+def sorting_questions(filter, descending):
     questions = get_questions()
-    if type_of_filter == "by_date":
-        filtered_questions = sorted(questions, key=lambda i: i['submission_time'], reverse=value)
-    else:
-        filtered_questions = sorted(questions, key=lambda i: i['vote_number'], reverse=value)
-    return filtered_questions
+    sorting_key = 'vote_number'
+    if filter == "by_date":
+        sorting_key = 'submission_time'
+    return sorted(questions, key=lambda i: i[sorting_key], reverse=descending)
 
 
 def sprawdzajko(type):
     questions = get_questions()
     if type == 'submission_time':
-        if questions[0][type] < questions[-1][type]:
-            value = True;
-        else:
-            value = False;
+        return True if questions[0][type] < questions[-1][type] else False
     else:
-        if int(questions[0][type]) < int(questions[-1][type]):
-            value = True;
-        else:
-            value = False;
-    return value
+        return True if int(questions[0][type]) < int(questions[-1][type]) else False
 
 
 def question_view_count_increase(id):

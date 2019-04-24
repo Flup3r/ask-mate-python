@@ -145,57 +145,6 @@ td.yellow{
     color: yellow;
 }
 
-
-#trans {
-    width: 700px;
-    height: 401px;
-}
-
-#trans img {
-  position:absolute;
-  left:0;
-  -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
-}
-
-  @keyframes transFadeInOut {
-  0% {
-  opacity:1;
-}
-45% {
-opacity:1;
-}
-55% {
-opacity:0;
-}
-100% {
-opacity:0;
-}
-}
-
-#trans img.top {
-animation-name: transFadeInOut;
-animation-timing-function: ease-in-out;
-animation-iteration-count: infinite;
-animation-duration: 5s;
-animation-direction: alternate;
-}
-
-div.right{
-    float: left;
-}
-
-div.low{
-    float: right;
-}
-
-div.middle{
-    float: right;
-    margin-right: 25%;
-}
-
 #border{
     border: 1px solid white;
     font-size: larger;

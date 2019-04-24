@@ -48,7 +48,7 @@
                         <a href="list/{{ question['id'] }}/down"><img border="0" src="static/down.png" width="50" height="50"></a>
                     </td>
                     {% if question['image'] %}
-                    <td><img src="/static/{{ question['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
+                    <td><img src="{{ question['image'] }}" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
                 {% else %}
                     <td><img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="height:70px; width:auto;"></td>
                 {% endif %}

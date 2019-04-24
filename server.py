@@ -3,9 +3,16 @@ from datetime import datetime
 import connection
 import data_manager
 from flask import Flask, render_template, request, redirect
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 import uuid
 app = Flask(__name__)
 
+
+app = Flask(__name__)
+photos = UploadSet('photos', IMAGES)
+
+app.config['UPLOADED_PHOTOS_DEST'] = 'ask-mate-python/static/images'
+configure_uploads(app, photos)
 
 @app.route('/')
 def main_page():
@@ -39,7 +46,7 @@ def show_question(id):
     data_manager.question_view_count_increase(id)
     question = data_manager.one_question(id)
     answers = data_manager.get_answers_to_question(id)
-    return render_template("show_question.html", question=question, answers=answers)
+    return render_template("show_question.html", question=question, answers=answers, id=id)
 
 
 @app.route('/question/<id>/new-answer', methods=['GET', 'POST'])
@@ -72,8 +79,9 @@ def add():
         'vote_number': 0,
             'title': request.form['title'],
             'message': request.form["message"],
-            'image': None
+            'image': ('/static/images/' + request.form["photo"])
         }
+
     else:
         return render_template('add.html')
     new_data = data_manager.get_questions()
@@ -161,13 +169,13 @@ def upload():
         try:
             filename = photos.save(request.files['photo'])
         except:
-            return redirect('/question_detail/' + question_id)
+            return redirect('/show_question/' + question_id)
 
         id = answer_id if answer_id else question_id
-        file_type = "answers" if answer_id else "questions"
+        file_type = "answer" if answer_id else "question"
 
         data_manager.update_image(file_type, filename, id)
-        return redirect('/question_detail/' + question_id)
+        return redirect('/show_question/' + question_id)
 
 
 

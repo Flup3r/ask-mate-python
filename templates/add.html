@@ -20,9 +20,18 @@
                  <input name='title' type="text" value="Your title"><br>
                         Question:<br>
                  <textarea name="message">Enter your Question here</textarea><br>
-                    <br>
-                    <button type="submit" formmethod="post"><span>Submit</span></button>
 
+                 <br>
+                 <td>{% if question['image'] %}
+               <img src="{{ question['image'] }}" alt="User image" class="img-thumbnail" style="width: 150px">
+           {% else %}
+               <img src="http://placehold.it/80" alt="Example image" class="img-thumbnail" style="width: 150px">
+           {% endif %}
+                 <button type="submit" formmethod="post"><span>Submit</span></button>
+                 <td><label class="btn btn-primary btn-sm">
+                    Browse <input type="file" style="display: none;" name="photo">
+                </label>
+                <button class="btn btn-primary btn-sm" type="submit">Upload</button></form></td>
              </fieldset>
 
 

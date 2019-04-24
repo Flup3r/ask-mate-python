@@ -107,7 +107,7 @@ def update_image(file_type, filename, id):
     data = connection.import_data(f"ask-mate-python/sample_data/{file_type}.csv")
     for element in data:
         if element['id'] == id:
-            element['image'] = 'images/' + filename
+            element['image'] = '/static/images/' + filename
     connection.write_file(data, f"ask-mate-python/sample_data/{file_type}.csv")
 
 

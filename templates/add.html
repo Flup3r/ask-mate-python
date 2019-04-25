@@ -22,12 +22,12 @@
                  <textarea name="message">Enter your Question here</textarea><br>
 
                  <br>
-
-                 <button type="submit" formmethod="post"><span>Submit</span></button>
+                 <form formmethod=POST enctype=multipart/form-data action='/add'>
                  <td><label class="btn btn-primary btn-sm">
                     Browse <input type="file" style="display: none;" name="photo">
                 </label>
-                <button class="btn btn-primary btn-sm" type="submit">Upload</button></form></td>
+                 <button type="submit" formmethod="POST"><span>Submit</span></button></form></td>
+
              </fieldset>
 
 

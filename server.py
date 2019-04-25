@@ -79,11 +79,13 @@ def add():
         'vote_number': 0,
             'title': request.form['title'],
             'message': request.form["message"],
-            'image': ('/static/images/' + request.form["photo"])
+            'image': None
         }
 
     else:
         return render_template('add.html')
+
+
     new_data = data_manager.get_questions()
     new_data.append(new_question)
     connection.write_file(new_data, 'ask-mate-python/sample_data/question.csv')

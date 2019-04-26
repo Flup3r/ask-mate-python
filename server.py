@@ -1,22 +1,24 @@
 from datetime import datetime
-
 import connection
 import data_manager
 from flask import Flask, render_template, request, redirect
-from flask_uploads import UploadSet, configure_uploads, IMAGES
+#from flask_uploads import UploadSet, configure_uploads, IMAGES
+
 import uuid
 app = Flask(__name__)
 
 
 app = Flask(__name__)
-photos = UploadSet('photos', IMAGES)
+#photos = UploadSet('photos', IMAGES)
 
 app.config['UPLOADED_PHOTOS_DEST'] = 'ask-mate-python/static/images'
-configure_uploads(app, photos)
+#configure_uploads(app, photos)
+
 
 @app.route('/')
 def main_page():
-    return render_template("index.html")
+    new = data_manager.newest_question()
+    return render_template("index.html", new=new)
 
 
 @app.route('/list')
@@ -27,7 +29,7 @@ def list_of_questions():
 
 @app.route('/list/sorted/by_date')
 def sorted_by_date():
-    value = data_manager.sprawdzajko('submission_time')
+    value = data_manager.checker('submission_time')
     questions = data_manager.sorting_questions("by_date", value)
     connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')
     return redirect("/list")
@@ -35,7 +37,7 @@ def sorted_by_date():
 
 @app.route('/list/sorted/by_vote')
 def sorted_by_vote():
-    value = data_manager.sprawdzajko('vote_number')
+    value = data_manager.checker('vote_number')
     questions = data_manager.sorting_questions("by_vote", value)
     connection.write_file(questions, 'ask-mate-python/sample_data/question.csv')
     return redirect('/list')
@@ -84,7 +86,6 @@ def add():
 
     else:
         return render_template('add.html')
-
 
     new_data = data_manager.get_questions()
     new_data.append(new_question)
@@ -178,7 +179,6 @@ def upload():
 
         data_manager.update_image(file_type, filename, id)
         return redirect('/show_question/' + question_id)
-
 
 
 if __name__ == '__main__':

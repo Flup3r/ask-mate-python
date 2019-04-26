@@ -117,3 +117,8 @@ textarea{
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+table.new_question{
+    width: 100%;
+    height: 100%;
+}

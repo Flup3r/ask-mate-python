@@ -87,7 +87,7 @@ def sorting_questions(filter, descending):
     return sorted(questions, key=lambda i: i[sorting_key], reverse=descending)
 
 
-def sprawdzajko(type):
+def checker(type):
     questions = get_questions()
     if type == 'submission_time':
         return True if questions[0][type] < questions[-1][type] else False
@@ -118,3 +118,10 @@ def update_question(id, title, description, file_type):
             question['title'] = title
             question['message'] = description
     connection.write_file(questions, f"ask-mate-python/sample_data/{file_type}.csv")
+
+
+def newest_question():
+    new_question = []
+    sorted_questions = sorting_questions("by_date", True)
+    new_question.append(sorted_questions[0])
+    return new_question
